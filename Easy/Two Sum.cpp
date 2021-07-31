@@ -2,6 +2,7 @@
 //Topics:Arrays, HashTable
 
 //Code
+//Ist Approach
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<pair<int,int>> v;
         for(int i=0;i<nums.size();i++)
@@ -28,3 +29,26 @@
         return {idx1,idx2};
     }
 //Time Complexity:O(nlogn)
+//Time Complexity:O(n)
+
+//Second Approach
+
+   vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> v;
+        unordered_map<int,int> m;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(m.find(target-nums[i])!=m.end())
+            {
+                v.push_back(m[target-nums[i]]);
+                v.push_back(i);
+                return v;
+            }
+            else
+                m[nums[i]]=i;
+        }
+       return v;
+    }
+
+//Time Complexity:O(n)
+//Time Complexity:O(n)
